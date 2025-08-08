@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student CRUD App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Student CRUD App</h2>
+  
+  <div class="top-section">
+    <div class="search-box">
+      <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search by Name, Email or City">
+    </div>
+    <div class="top-buttons">
+      <button class="btn" onclick="selectAllToggle()">Select All</button>
+      <div>
+        <button class="btn" onclick="showForm()">Add</button>
+        <button class="btn" onclick="undoDelete()">Undo</button>
+      </div>
+    </div>
+  </div>
+
+  <table id="studentTable">
+    <thead>
+      <tr>
+        <th>College ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Students rows here -->
+    </tbody>
+  </table>
+
+  <!-- Add/Edit Form Popup -->
+  <div id="formPopup" class="popup">
+    <h3 id="formTitle">Add Student</h3>
+    <label>College ID:</label><br>
+    <input type="text" id="clgid"><br><br>
+    <label>Name:</label><br>
+    <input type="text" id="name"><br><br>
+    <label>Email:</label><br>
+    <input type="text" id="email"><br><br>
+    <label>City:</label><br>
+    <input type="text" id="city"><br><br>
+    <button class="btn" onclick="saveStudent()">Save</button>
+    <button class="btn" onclick="closeForm()">Cancel</button>
+  </div>
+
+  <div id="overlay"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
